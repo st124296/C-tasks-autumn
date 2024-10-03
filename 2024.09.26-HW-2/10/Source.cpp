@@ -9,6 +9,8 @@ int main(int argc, char* argv[]) {
         c5 = n / 5;
     }
 
+    // так выглядит отчаяние 
+
     else if ((n - 3) % 5 == 0) {
         c5 = (n - 3) / 5;
         c3 = 1;
