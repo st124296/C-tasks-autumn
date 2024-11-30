@@ -1,50 +1,52 @@
 #include <iostream>
-
 int main(int argc, char* argv[])
 {
-	int a[100] = { 0 };
-	int b[100] = { 0 };
-	int c[100] = { 0 };
-	int i = 0;
 	int n = 0;
-	int k = 0;
-	int d = 0;
-
 	std::cin >> n;
-	for (i = 0; i < n; ++i)
+
+	int* a = (int*)malloc(n * sizeof(int));
+	for (int i = 0; i < n; ++i)
 	{
-		std::cin >> a[i];
-		if (a[i] % 2 == 1)
+		scanf_s("%d", a + i);
+	}
+
+	int k = 0;
+	int p = 0;
+
+	for (int i = 0; i < n; ++i)
+	{
+		if (*(a + i) % 2 == 0)
 		{
-			b[i] = a[i]; ++k;
+			k += 1;
 		}
 		else
 		{
-			c[i] = a[i]; ++d;
+			p += 1;
 		}
 	}
-	for (i = 0; i < n; ++i)
+	for (int i = 0; i < n; ++i)
 	{
-		if (b[i] != 0)
-			std::cout << b[i] << ' ';
-	}
-	std::cout << std::endl;
-	for (i = 0; i < n; i++)
-	{
-		if (c[i] != 0)
+		if (*(a + i) % 2 != 0)
 		{
-			std::cout << c[i] << ' ';
+			std::cout << *(a + i) << ' ';
 		}
 	}
-	std::cout << std::endl;
-	if (k > d)
+	for (int i = 0; i < n; ++i)
 	{
-		std::cout << "NO";
+		if (*(a + i) % 2 == 0)
+		{
+			std::cout << *(a + i) << ' ';
+		}
 	}
-
+	if (k >= p)
+	{
+		printf("YES");
+	}
 	else
 	{
-		std::cout << "YES";
+		printf("NO");
 	}
+
+	free(a);
 	return 0;
 }
