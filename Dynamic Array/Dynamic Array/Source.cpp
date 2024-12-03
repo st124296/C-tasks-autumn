@@ -56,15 +56,12 @@ int* delete_beginning(int* arr, int& n)
 
 int main()
 {
-    int n = 0; // длина массива
+    int n = 0;
     cout << "Enter the number of array elements: ";
     cin >> n;
 
-    int k = 0; // число, с которым мы будем играться 
-    cout << "Enter number: ";
-    cin >> k;
-
-    if (n <= 0) {
+    if (n <= 0)
+    {
         cerr << "The number of elements must be greater than 0!" << endl;
         return 1;
     }
